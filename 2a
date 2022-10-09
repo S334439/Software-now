@@ -1,0 +1,40 @@
+#passwords = input('Enter passwords separated by space ')       #user enters passwords to be checked as per input instruction
+
+#passwords = "GOODpass1234!@$" "badpassword" "BADpas123!@#" "badbad" "badPASSWO1234!@#bfA" "GOODpa123!@"
+
+#password_list = passwords.split()      #passwords are then split by whitespace (default) not creating a list but a long string
+
+password_list = ['GOODpass1234!@$', 'badpassword', 'BADpas123!@#', 'badbad', 'badPASSWO1234!@#bfA', 'GOODpa123!@']
+
+
+
+import re
+password_list = ['GOODpass1234!@$', 'badpassword', 'BADpas123!@#', 'badbad', 'badPASSWO1234!@#bfA', 'GOODpa123!@']
+flag = 0
+
+for x in password_list:
+
+    while True:
+        if (len(x)>=8 and len(x)<=18):
+            flag = -1
+            break
+        elif not re.search("[a-z]", x):
+            flag = -1
+            break
+        elif not re.search("[A-Z]", x):
+            flag = -1
+            break
+        elif not re.search("[0-9]", x):
+            flag = -1
+            break
+        elif not re.search("[$#@!&]", x):
+            flag = -1
+            break
+        elif re.search("\s", x):
+            flag = -1
+            break
+if flag == 0:
+    print(x)
+ 
+else:
+    print("No valid passwords")

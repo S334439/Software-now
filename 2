@@ -1,0 +1,60 @@
+
+#passwords = input('Enter passwords separated by space ')       #user enters passwords to be checked as per input instruction
+
+#passwords = "GOODpass1234!@$" "badpassword" "BADpas123!@#" "badbad" "badPASSWO1234!@#bfA" "GOODpa123!@"
+
+#password_list = passwords.split()      #passwords are then split by whitespace (default) not creating a list but a long string
+
+
+
+# Function to validate the password
+def validate_password(password):
+
+    valid_password_list = []      #create an empty list to add our accepted passwords to
+    
+    UPPER = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"    #define uppercase letters
+    lower = "abcdefghijklmnopqrstuvwxyz"    #define lower case
+    specialchar = "$#@!&"    #define special characters
+    digits = "0123456789"   #define digits
+
+    l, u, s, d = 0, 0, 0, 0     #lower, upper, special, digits
+
+    for x in password:    #for each character in the password, do below
+ 
+        # adds 1 for each lower case
+        if (x in lower):
+            l+=1           
+ 
+        # adds 1 for each uppercase 
+        if (x in UPPER):
+            u+=1           
+ 
+        # adds 1 for each digits
+        if (x in digits):
+            d+=1           
+ 
+        # adds 1 for each special character
+        if(x in specialchar):
+            s+=1 
+
+    if (l>=2 and u>=4 and s>=2 and d>=3 and l+s+u+d==len(password)) and len(password) >= 11 and len(password) <=18:
+        
+        print(password)
+
+        
+        
+          #checks for question limitations, if yes, prints answer
+
+
+userinput = input('Enter passwords separated by space: ')
+
+user_password_list = userinput.split()      #passwords are then split by whitespace (default) not creating a list but a long string
+
+#password_list = ['GOODpass1234!@$', 'badpassword', 'BADpas123!@#', 'badbad', 'badPASSWO1234!@#bfA', 'GOODpa123!@']
+
+for i in user_password_list:
+    validate_password(i)
+
+
+
+#NEED TO ALTER THE OUTPUT TO INCLUDE THE LINES

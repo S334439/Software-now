@@ -1,0 +1,5 @@
+file = open("words.txt",'r')  #name of file in system
+
+words = file.read() #read the strings in the text
+
+words_into_list = words.split("\n")    #splits file into a list, separated by each new line command

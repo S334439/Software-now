@@ -1,0 +1,67 @@
+
+
+
+s = '56aAww1984sktr235270aYmn145ss785fsq31D0'    #starting string, same as assignment question 
+print("Original string", s)
+
+# split string into list of all characters
+stringlist = list(s)
+
+#print(stringlist) #for testing only
+
+#change all characters to ASCII code     #ord() allows you to convert from char to ASCII whereas chr() allows you to do the opposite
+#for each variable in full length of stringlist, that variable = its ASCII code
+for x in range(len(stringlist)):
+     stringlist[x] = ord(stringlist[x])
+#print(stringlist) #for testing only
+
+
+#now all variables have a number representation, we can easily seperate using higher/lower
+#use <=  >= to determine between which are numbers, else letters
+#ASCII codes   48-57 = 0-9, 65-90 = uppercase, 97-122 = lowercase
+
+numlist = [i for i in stringlist if i <= 57]  
+#print(numlist)      #testing only    
+charlist = [i for i in stringlist if i >= 65] 
+#print(charlist)      #testing only
+
+
+#easily define uppercase letters, already in ascii code. 
+UppercaseAscii = [e for e in charlist if e <= 90]  
+#print(UppercaseAscii)    #one of the questions answered, needs to move below
+
+EvennumAscii = [e for e in numlist if e % 2 == 0] #define even numbers by checking if divisible by 2 with no remainder
+#print(EvennumAscii)    #one of the questions answered, needs to move below 
+#noticed the assignment answer misses a digit, 4
+
+#now turn the ascii code lists back to original forms
+
+for a in range(len(numlist)):
+    numlist[a] = chr(numlist[a])
+#print(numlist)  testing only   
+
+for b in range(len(charlist)):
+    charlist[b] = chr(charlist[b])
+#print(charlist)   testing only   
+
+#convert lists back into strings and print all values
+
+numstring = ''.join(str(c) for c in numlist)
+print("This is the number string ", numstring)
+
+charstring = ''.join(str(d) for d in charlist)
+print("This is the character string ", charstring)
+
+print("These are the uppercase letters in ascii code ", UppercaseAscii)
+
+print("These are the even numbers in ascii code ", EvennumAscii)
+
+#job done. 
+
+
+
+
+
+
+
+

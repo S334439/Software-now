@@ -1,0 +1,31 @@
+
+message = 'VZ FRYSVFU VZCNGVRAG NAQ N YVGGYR VAFRPHER V ZNXR ZVFGNXRF V NZ BHG BS PBAGEBYNAQ NG GVZRF UNEQ GB UNAQYR OHG VS LBH PNAG UNAQYR ZR NG ZL JBEFG GURA LBHFHER NF URYY QBAG QRFREIR ZR NG ZL ORFG ZNEVYLA ZBAEBR'    #mesage to be decrypted
+
+LETTERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'   #list letters to be shifted
+
+
+
+# loop through every possible key
+
+for key in range(26):     #define the key as an integer and complete the loop in the range of 26 numbers (the alphabet)
+
+    shifted = LETTERS[key:] + LETTERS[:key]    #shifted = the letters of the alphabet spliced, with the letters before splicing then added
+
+    table = str.maketrans(LETTERS, shifted)    #translation table created for each shift key value
+
+    decrypted = message.translate(table)     #message translated using translation tale
+
+    print(decrypted)   #print messages while still in loop
+
+
+print('')    #just to create a new line between the answer and the brute force
+
+key = 13
+
+shifted = LETTERS[key:] + LETTERS[:key]    #shifted = the letters of the alphabet spliced, with the letters before splicing then added
+
+table = str.maketrans(LETTERS, shifted)    #translation table created for each shift key value
+
+decrypted = message.translate(table)     #message translated using translation tale
+
+print("Key value 13: ", decrypted)   #print messages while still in loop

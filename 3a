@@ -1,0 +1,5 @@
+f = open('words.txt')
+    
+file = f.readline(1)
+
+print(file)

@@ -1,0 +1,46 @@
+
+#the distance from original point is simply pythagoras theormn
+
+#use UP/DOWN INPUTS together to find vertical distance
+
+#use RIGHT/LEFT to find horizontal
+
+#this will even give a grid and directions, with added maths
+
+import math  #import math module so that we can use square roots etc
+
+U, D, R, L = 0, 0, 0, 0 #Define starting points (0,0) as given in question
+
+#add each given input from question, when car is running these would be input from GPS data or some other oracle
+
+U += int(input("How far have you travelled UP in kms?" ))
+
+D += int(input("How far have you travelled DOWN in kms?" ))
+
+L += int(input("How far have you travelled LEFT in kms?" ))
+
+R += int(input("How far have you travelled RIGHT in kms?" ))
+
+#create variables for vertical and horizontal distance, i chose same polaritys as a standard xy plane
+
+vertical = U - D      #print(vertical) test only   =2
+
+horizontal = R - L    #print(horizontal) test only   =-1
+
+#now we know pythagoras is  c^2 = a^2 + b^2     c^2 = 2^2 + -1^2 = 5
+
+distancesquared = (vertical * vertical) + (horizontal * horizontal)     #c^2 = 2^2 + -1^2 = 5
+
+print("You are ", int(math.sqrt(distancesquared)), "km from your starting point")     #answer = sqrt(5), or 2 without dec places
+
+
+#we can easily set up code for direction as well. example below. 
+
+#if vertical > 0, north
+#if horizotal > 0, east
+#if vertical < 0, south
+#if horizontal < 0, west
+#if horizontal and vertical == 0, you are home
+
+
+
