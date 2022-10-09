@@ -1,5 +1,9 @@
-f = open('words.txt')
+f = open('words.txt')     #open the txt file
     
-file = f.readline(1)
+list1 = f.readline()      #use readlines to create a list of the words in the file
 
-print(file)
+list2 = [''.join(sorted(s)) for s in list1]      #use the sorted function to create a second list with each word in alphabetical order
+
+for x,y in zip(list1,list2):       #compare the two lists, if they are equal, the word was already in alphabetical order!
+    if x == y:
+        print(x)
