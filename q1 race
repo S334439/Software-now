@@ -1,0 +1,108 @@
+from turtle import *              #import turtle module
+from random import *      #import random
+import turtle
+import time        #import time module for delayed race start
+
+#section is to set up the actual screen
+setup(800, 500)     #screen parameters
+title("Turtle Race")   #screen title
+bgcolor("gold")     #background color
+speed(1)     #turtle speed set at 1 so setup can be seen
+
+
+# create the racetrack
+goto(-350, 200)     #dimensions of racetrack
+pendown()    #pendown to initiate drawing
+color("grey")    #racetrack color
+begin_fill()   
+for i in range(2):     #this look creates a rectangle, forward, right, forward right x2
+    forward(700)
+    right(90)
+    forward(400)
+    right(90)
+end_fill()   #fill the box
+penup()   #penup when track is created
+
+
+#create a finish line in the track
+goto(250, 200)   #go to near the end of the track, same height as top
+pendown()   #pendown to write
+color("black")
+begin_fill()
+for i in range(2):     #this look creates a rectangle, forward, right, forward right x2  
+    forward(50)
+    right(90)
+    forward(400)
+    right(90)
+end_fill()   #fill the finish line
+penup()
+
+#create the turtle
+blue_turtle = Turtle()     #give thist turtle a variable
+blue_turtle.color("blue")     #give it color  
+blue_turtle.shape("turtle")    #give it a shape
+blue_turtle.shapesize(1.5)     #give it a size
+blue_turtle.penup()           #stop it writing
+blue_turtle.goto(-300, 150)     #go to starting position
+blue_turtle.pendown()           #pendown to start racing
+    
+#create another turtle, same as above
+red_turtle = Turtle()
+red_turtle.color("red")
+red_turtle.shape("turtle")
+red_turtle.shapesize(1.5)
+red_turtle.penup()
+red_turtle.goto(-300, 50)
+red_turtle.pendown()    
+    
+#create turtle number 3
+yellow_turtle = Turtle()
+yellow_turtle.color("yellow")
+yellow_turtle.shape("turtle")
+yellow_turtle.shapesize(1.5)
+yellow_turtle.penup()
+yellow_turtle.goto(-300, -50)
+yellow_turtle.pendown()    
+  
+#create turtle number 4
+green_turtle = Turtle()
+green_turtle.color("lime")
+green_turtle.shape("turtle")
+green_turtle.shapesize(1.5)
+green_turtle.penup()
+green_turtle.goto(-300, -150)
+green_turtle.pendown()   
+
+time.sleep(2)     #once turtles are positioned, a short break before the race starts. can be extended for gambling time with your mates
+
+
+#moving the turles
+#while all the turtles x co-ordinate is less than the finish line, keep them moving
+#turtles move forward at random integers between 1 and 20 pixels
+while blue_turtle.xcor() <= 250 and red_turtle.xcor() <= 250 and yellow_turtle.xcor() <= 250 and green_turtle.xcor() <= 250:
+    blue_turtle.forward(randint(1, 20))     
+    red_turtle.forward(randint(1, 20))
+    yellow_turtle.forward(randint(1, 20))
+    green_turtle.forward(randint(1, 20))
+
+
+#letting the audience know who won
+#turtles get a big head when they win, so grew them with shapesize
+
+if blue_turtle.xcor() > red_turtle.xcor() and blue_turtle.xcor() > yellow_turtle.xcor() and blue_turtle.xcor() > green_turtle.xcor():
+    blue_turtle.shapesize(5)
+
+
+elif red_turtle.xcor() > blue_turtle.xcor() and red_turtle.xcor() > yellow_turtle.xcor() and red_turtle.xcor() > green_turtle.xcor():
+    red_turtle.shapesize(5)
+  
+
+elif yellow_turtle.xcor() > blue_turtle.xcor() and yellow_turtle.xcor() > red_turtle.xcor() and yellow_turtle.xcor() > green_turtle.xcor():
+    yellow_turtle.shapesize(5)
+
+
+else:
+    green_turtle.shapesize(5)
+
+    
+turtle.done()     #use turtle.done() so that screen does not dissappear when race is over causing fights in the audience. 
