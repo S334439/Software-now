@@ -1,3 +1,6 @@
+#turtle racetrack and race 
+# link to video on youtube   https://youtu.be/H1QNDAOCkfs
+
 from turtle import *              #import turtle module
 from random import *      #import random
 import turtle
